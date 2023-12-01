@@ -154,5 +154,63 @@ Podemos documentar a nossa função usando aspas duplas depois do nome dela. Por
     [valor-bruto]
     (* valor-bruto 0.9))
 ```
-
 Desta maneira temos uma descrição do que esta função faz.
+
+### Definindo simbolos locais dentro da função
+
+Para definir um simbolo local dentro da função usaremos um vetor com o let. Por exemplo, imagine que quero fazer que o valor de desconto seja algo variavel dentro da função.
+Iremos escrever a função assim então:
+```
+(defn valor-descontado 
+    "Retorna o valor descontado de 90% do valor bruto"
+    [valor-bruto]
+    (let [desconto 0.10]
+        (* valor-bruto (- 1 desconto))))
+```
+Desta maneira podemos usar o simbolo desconto como um escopo local.
+O let tem um escopo totalmente local que ele só é visto dentro dos proprios parametros que ele é definido, por isso nós tivemos que colocar o calculo do desconto dentro dos parenteses do let.
+Então para imprimir o valor usamos:
+```
+(valor-descontado 100)
+```
+
+Como o Let é um vetor ele pode receber mais de um simbolo. Por exemplo:
+```
+(defn valor-descontado 
+    "Retorna o valor descontado de 90% do valor bruto"
+    [valor-bruto]
+    (let [taxa-de-desconto (/ 10 100)
+          desconto         (* valor-bruto taxa-de-desconto)]
+        (- valor-bruto desconto)))
+```
+
+Você verá agora que será impresso um 90N esse N é porque nosso número é um Big Int, se fosse um M é um Big Decimal.
+Você pode ver a classe de um numero apenas usando a função class.
+```
+(class 90N)
+(class 90M)
+```
+
+## Criando condicionais
+
+Imagine que nossa função de desconto, tem q dar desconto apenas se nosso valor for maior que 100.
+A sintaxe do comando condicional em clojure será assim:
+```
+(if (> 500 100)
+    (println "maior")
+    (println "menor"))
+```
+
+O primeiro parametro do if é a condicao, o segundo o que será executado se verdadeiro e o próximo parametro o que sera executado se for falso.
+
+Vamos ajustar nossa função:
+```
+(defn valor-descontado 
+    "Retorna o valor com desconto de 10% se o valor bruto for estritamente maior que 100"
+    [valor-bruto]
+    (if (> valor-bruto 100)
+        (let [taxa-de-desconto (/ 10 100)
+            desconto         (* valor-bruto taxa-de-desconto)]
+            (- valor-bruto desconto))
+        valor-bruto))
+```
