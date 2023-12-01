@@ -1,7 +1,7 @@
-# aprendendo-clojure
-Repositório foca em aprender Clojure
+# 1. Aprendendo Clojure
+Este repositório foca em explicações simples e exemplos que usei para aprender Clojure
 
-## Instalação
+## 1.1. Instalação
 
 Passo 1: Instalar o Java 
 - https://adoptium.net/
@@ -17,9 +17,14 @@ iwr -useb github.com/clojure/brew-install/releases/latest/download/win-install.p
 Passo 4: Escolha o local onde instalar. Número 1 caso não tenha permissao de admin e 2 ou 3 caso você tenha permissão.
 
 
-## Linguagem
+## 1.2. Linguagem
 
-### Executar Funções
+Para executarmos os comandos do Clojure inicialmente iremos digitar no terminal o comando:
+```
+clj
+```
+
+### 1.2.1. Executar Funções
 Para funções ou operações devem ser usadas entre () parenteses. A função que eu quero executar tambem deve vir sempre no inicio. Por exemplo:
 
 ```
@@ -28,7 +33,7 @@ Para funções ou operações devem ser usadas entre () parenteses. A função q
 
 A função println retorna um valor nulo, por isso ele retorna nil na linha de baixo.
 
-### Definição de Simbolos
+### 1.2.2. Definição de Simbolos
 
 Para definir um simbolo usamos o comando def. Por exemplo para definir uma variavel de produtos com valor 15 vou usar o seguinte comando.
 ```
@@ -49,7 +54,7 @@ Para mudar o valor de uma variavel podemos redefinir usando o def. Por exemplo:
 (def total-de-produtos 10)
 ```
 
-### Calculando valores
+### 1.2.3. Calculando valores
 
 Para podermos por exemplo fazer uma soma, devemos lembrar que a função vem sempre no início então a soma de 2 valores ficaria assim:
 ```
@@ -69,7 +74,7 @@ Se quisermos redefinir um valor do total de produtos usaremos da seguinte maneir
 ```
 Assim estamos usando o resultado de uma função como parametro de um novo simbolo.
 
-### Imutabilidade - Vetor
+### 1.2.4. Imutabilidade - Vetor
 
 Definiremos um vetor assim:
 ```
@@ -81,7 +86,7 @@ Para imprimir iremos fazer assim:
 ```
 Reparem que a impressão virá com espaço, porque a virgula para o clojure é como um espaço em branco.
 
-#### Operacoes com o Vetor
+#### 1.2.4.1. Operacoes com o Vetor
 
 Para imprimir um item do vetor podemos usar o simbolo dele como uma funcao. Por exemplo:
 ```
@@ -112,7 +117,7 @@ Ai sim iremos ter o estoque com o valor Cadeira redefinido dentro dele.
 (println estoque)
 ```
 
-### Criando uma função
+### 1.2.5. Criando uma função
 
 Para criar uma função usaremo o defn, para isso precisamos dizer o nome da funcao e dizer que ela não irá receber nenhum parametro, para isso usaremos um [].
 O corpo da função é passado na linha seguinte com um espaço identado. Nossa função ficará assim:
@@ -156,7 +161,7 @@ Podemos documentar a nossa função usando aspas duplas depois do nome dela. Por
 ```
 Desta maneira temos uma descrição do que esta função faz.
 
-### Definindo simbolos locais dentro da função
+### 1.2.6. Definindo simbolos locais dentro da função
 
 Para definir um simbolo local dentro da função usaremos um vetor com o let. Por exemplo, imagine que quero fazer que o valor de desconto seja algo variavel dentro da função.
 Iremos escrever a função assim então:
@@ -191,7 +196,7 @@ Você pode ver a classe de um numero apenas usando a função class.
 (class 90M)
 ```
 
-## Criando condicionais
+## 1.3. Criando condicionais
 
 Imagine que nossa função de desconto, tem q dar desconto apenas se nosso valor for maior que 100.
 A sintaxe do comando condicional em clojure será assim:
