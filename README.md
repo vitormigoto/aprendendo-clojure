@@ -112,4 +112,47 @@ Ai sim iremos ter o estoque com o valor Cadeira redefinido dentro dele.
 (println estoque)
 ```
 
+### Criando uma função
 
+Para criar uma função usaremo o defn, para isso precisamos dizer o nome da funcao e dizer que ela não irá receber nenhum parametro, para isso usaremos um [].
+O corpo da função é passado na linha seguinte com um espaço identado. Nossa função ficará assim:
+```
+(defn imprime-mensagem 
+    []
+    (println "Bem vindo"))
+```
+
+Definida a função podemos executa-la simplemente chamando ela assim:
+```
+(imprime-mensagem)
+```
+
+Para passarmos parametros definimos dentro dos [] o nome do parametro. Por exemplo, vamos criar uma função que vai aplicar um desconto num valor.
+```
+(defn aplica-desconto 
+    [valor-bruto]
+    (* valor-bruto 0.9))
+```    
+Feito isso iremos imprimir passando um valor pra função
+```
+(aplica-desconto 100)
+```
+
+Na literatura veremos que o nome da função é escrito como uma solicitacao. Exemplo: a mesma função acima com esse formato.
+```
+(defn valor-descontado 
+    [valor-bruto]
+    (* valor-bruto 0.9))
+
+(valor-descontado 100)
+```
+
+Podemos documentar a nossa função usando aspas duplas depois do nome dela. Por exemplo:
+```
+(defn valor-descontado 
+    "Retorna o valor descontado de 90% do valor bruto"
+    [valor-bruto]
+    (* valor-bruto 0.9))
+```
+
+Desta maneira temos uma descrição do que esta função faz.
